@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Khidmat.ai</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Ionicons for mobile UI icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <div id="app-container">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <h1>Khidmat.ai</h1>
+                <div class="header-status">
+                    <span class="status-dot online"></span>
+                    <span>AI Agent Ready</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main id="main-content">
+            <!-- TAB 1: Chat/Booking -->
+            <section id="tab-chat" class="tab-pane active">
+                <div id="chat-history">
+                    <div class="message system">
+                        <div class="avatar"><ion-icon name="hardware-chip-outline"></ion-icon></div>
+                        <div class="bubble">
+                            <p>Assalam o Alaikum! I'm your Khidmat.ai orchestrator.</p>
+                            <p>What service do you need today? (e.g., "Kal subah G-13 me AC repair krna hai, sasta wala")</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input-area">
+                    <div class="input-wrapper">
+                        <input type="text" id="user-input" placeholder="Type your request here (Urdu/English)..." autocomplete="off">
+                        <button id="btn-voice" class="icon-btn"><ion-icon name="mic-outline"></ion-icon></button>
+                        <button id="btn-send" class="icon-btn primary"><ion-icon name="send"></ion-icon></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: Bookings -->
+            <section id="tab-bookings" class="tab-pane">
+                <div class="section-header">
+                    <h2>My Bookings</h2>
+                    <button class="icon-btn" onclick="fetchBookings()"><ion-icon name="refresh"></ion-icon></button>
+                </div>
+                <div id="bookings-list" class="scrollable-list">
+                    <!-- Populated via JS -->
+                </div>
+            </section>
+
+            <!-- TAB 3: Providers -->
+            <section id="tab-providers" class="tab-pane">
+                <div class="section-header">
+                    <h2>Service Providers</h2>
+                    <button class="icon-btn" onclick="fetchProviders()"><ion-icon name="refresh"></ion-icon></button>
+                </div>
+                <div id="providers-list" class="scrollable-list grid-list">
+                    <!-- Populated via JS -->
+                </div>
+            </section>
+
+            <!-- TAB 4: Agent Logs (Live Trace) -->
+            <section id="tab-logs" class="tab-pane">
+                <div class="section-header">
+                    <h2>Live Agent Trace</h2>
+                    <span class="badge" id="current-request-id">No active session</span>
+                </div>
+                <div class="logs-container">
+                    <div id="logs-list" class="timeline">
+                        <!-- Populated via JS -->
+                        <div class="empty-state">Make a request in the Chat tab to see agent reasoning here.</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active" data-target="tab-chat">
+                <ion-icon name="chatbubbles-outline"></ion-icon>
+                <span>Chat</span>
+            </a>
+            <a href="#" class="nav-item" data-target="tab-bookings">
+                <ion-icon name="calendar-outline"></ion-icon>
+                <span>Bookings</span>
+            </a>
+            <a href="#" class="nav-item" data-target="tab-providers">
+                <ion-icon name="people-outline"></ion-icon>
+                <span>Providers</span>
+            </a>
+            <a href="#" class="nav-item" data-target="tab-logs">
+                <ion-icon name="code-slash-outline"></ion-icon>
+                <span>Agent Logs</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Modals & Overlays -->
+    <div id="loading-overlay" class="hidden">
+        <div class="spinner"></div>
+        <p>AI is thinking...</p>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

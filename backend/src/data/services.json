@@ -1,0 +1,136 @@
+{
+  "categories": [
+    {
+      "id": "ac-repair",
+      "name": "AC Repair & Service",
+      "nameUrdu": "اے سی مرمت",
+      "keywords": ["ac", "air conditioner", "AC", "split ac", "window ac", "cooling", "thanda", "AC service", "AC repair", "ac wala", "AC technician"],
+      "complexity": {
+        "basic": { "label": "Basic Service/Cleaning", "duration": 60, "basePrice": 1500 },
+        "intermediate": { "label": "Gas Refill / Minor Repair", "duration": 120, "basePrice": 3000 },
+        "complex": { "label": "Compressor/Major Repair", "duration": 240, "basePrice": 6000 }
+      }
+    },
+    {
+      "id": "plumbing",
+      "name": "Plumbing",
+      "nameUrdu": "پلمبنگ",
+      "keywords": ["plumber", "plumbing", "pipe", "leak", "tap", "nalkay", "pani", "water", "drain", "sewerage", "toilet", "washroom", "bathroom", "geyser"],
+      "complexity": {
+        "basic": { "label": "Tap/Faucet Fix", "duration": 30, "basePrice": 800 },
+        "intermediate": { "label": "Pipe Repair / Leak Fix", "duration": 90, "basePrice": 2000 },
+        "complex": { "label": "Major Pipeline / Sewerage", "duration": 300, "basePrice": 5000 }
+      }
+    },
+    {
+      "id": "electrical",
+      "name": "Electrical Work",
+      "nameUrdu": "بجلی کا کام",
+      "keywords": ["electrician", "bijli", "wiring", "switch", "socket", "light", "fan", "circuit", "breaker", "UPS", "generator", "short circuit", "electric"],
+      "complexity": {
+        "basic": { "label": "Switch/Socket Fix", "duration": 30, "basePrice": 600 },
+        "intermediate": { "label": "Wiring / Fan / Light", "duration": 120, "basePrice": 2000 },
+        "complex": { "label": "Full Wiring / Panel", "duration": 480, "basePrice": 8000 }
+      }
+    },
+    {
+      "id": "carpentry",
+      "name": "Carpentry",
+      "nameUrdu": "بڑھئی",
+      "keywords": ["carpenter", "wood", "furniture", "door", "cabinet", "shelf", "table", "chair", "wardrobe", "kitchen cabinet", "lakri", "mistri"],
+      "complexity": {
+        "basic": { "label": "Minor Repair / Hinge Fix", "duration": 60, "basePrice": 1000 },
+        "intermediate": { "label": "Door / Shelf Install", "duration": 180, "basePrice": 3000 },
+        "complex": { "label": "Custom Furniture", "duration": 600, "basePrice": 10000 }
+      }
+    },
+    {
+      "id": "painting",
+      "name": "Painting & Decoration",
+      "nameUrdu": "پینٹنگ اور سجاوٹ",
+      "keywords": ["painter", "paint", "wall", "color", "rang", "distemper", "whitewash", "polish", "decoration", "interior"],
+      "complexity": {
+        "basic": { "label": "Touch Up / Small Wall", "duration": 120, "basePrice": 2000 },
+        "intermediate": { "label": "Single Room", "duration": 360, "basePrice": 5000 },
+        "complex": { "label": "Full House", "duration": 1440, "basePrice": 25000 }
+      }
+    },
+    {
+      "id": "cleaning",
+      "name": "House Cleaning",
+      "nameUrdu": "صفائی",
+      "keywords": ["cleaning", "cleaner", "maid", "safai", "deep clean", "sofa cleaning", "carpet", "wash", "jhaaru", "pocha"],
+      "complexity": {
+        "basic": { "label": "Regular Cleaning", "duration": 120, "basePrice": 1500 },
+        "intermediate": { "label": "Deep Clean (Single Room)", "duration": 240, "basePrice": 3000 },
+        "complex": { "label": "Full House Deep Clean", "duration": 480, "basePrice": 8000 }
+      }
+    },
+    {
+      "id": "beauty",
+      "name": "Beauty & Salon (Home)",
+      "nameUrdu": "بیوٹی سروس",
+      "keywords": ["beauty", "salon", "makeup", "facial", "mehndi", "henna", "hair", "bridal", "waxing", "threading", "manicure", "pedicure", "parlour", "parlor"],
+      "complexity": {
+        "basic": { "label": "Threading / Facial", "duration": 60, "basePrice": 1000 },
+        "intermediate": { "label": "Full Service Package", "duration": 180, "basePrice": 3500 },
+        "complex": { "label": "Bridal Package", "duration": 360, "basePrice": 15000 }
+      }
+    },
+    {
+      "id": "tutoring",
+      "name": "Tutoring & Teaching",
+      "nameUrdu": "ٹیوشن",
+      "keywords": ["tutor", "teacher", "tuition", "tution", "padhai", "study", "math", "science", "english", "class", "exam", "homework"],
+      "complexity": {
+        "basic": { "label": "Primary Level", "duration": 60, "basePrice": 800 },
+        "intermediate": { "label": "Matric / O-Level", "duration": 90, "basePrice": 1500 },
+        "complex": { "label": "FSc / A-Level / Test Prep", "duration": 120, "basePrice": 2500 }
+      }
+    },
+    {
+      "id": "mechanic",
+      "name": "Auto Mechanic",
+      "nameUrdu": "مکینک",
+      "keywords": ["mechanic", "car", "bike", "motorcycle", "engine", "oil", "brake", "tyre", "tire", "gaari", "gari", "puncture", "denting", "painting"],
+      "complexity": {
+        "basic": { "label": "Oil Change / Tune Up", "duration": 60, "basePrice": 1500 },
+        "intermediate": { "label": "Brake / Suspension", "duration": 180, "basePrice": 4000 },
+        "complex": { "label": "Engine Overhaul", "duration": 600, "basePrice": 15000 }
+      }
+    },
+    {
+      "id": "pest-control",
+      "name": "Pest Control",
+      "nameUrdu": "کیڑے مار سروس",
+      "keywords": ["pest", "cockroach", "ant", "termite", "deemak", "mosquito", "rat", "mouse", "fumigation", "spray"],
+      "complexity": {
+        "basic": { "label": "Single Room Spray", "duration": 30, "basePrice": 1000 },
+        "intermediate": { "label": "Full House Spray", "duration": 120, "basePrice": 3000 },
+        "complex": { "label": "Termite Treatment", "duration": 300, "basePrice": 8000 }
+      }
+    },
+    {
+      "id": "appliance-repair",
+      "name": "Appliance Repair",
+      "nameUrdu": "آلات کی مرمت",
+      "keywords": ["fridge", "refrigerator", "washing machine", "dryer", "oven", "microwave", "dishwasher", "heater", "iron", "appliance"],
+      "complexity": {
+        "basic": { "label": "Diagnosis / Minor Fix", "duration": 60, "basePrice": 1200 },
+        "intermediate": { "label": "Part Replacement", "duration": 180, "basePrice": 3500 },
+        "complex": { "label": "Major Overhaul", "duration": 360, "basePrice": 7000 }
+      }
+    },
+    {
+      "id": "masonry",
+      "name": "Masonry & Construction",
+      "nameUrdu": "تعمیراتی کام",
+      "keywords": ["mason", "construction", "wall", "tiles", "marble", "floor", "roof", "cement", "rajmistri", "taameer", "renovation"],
+      "complexity": {
+        "basic": { "label": "Tile Fix / Crack Repair", "duration": 120, "basePrice": 2000 },
+        "intermediate": { "label": "Bathroom / Kitchen Reno", "duration": 480, "basePrice": 10000 },
+        "complex": { "label": "Major Construction", "duration": 2400, "basePrice": 50000 }
+      }
+    }
+  ]
+}

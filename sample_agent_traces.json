@@ -1,0 +1,346 @@
+[
+  {
+    "scenario": "Normal booking (Roman Urdu)",
+    "status": "SUCCESS",
+    "confidenceScore": 0.95,
+    "provider": "Farhan Ansari",
+    "matchScore": "94.5",
+    "finalPrice": 1582,
+    "scheduledTime": "Tomorrow 9:00 AM (+26 min travel buffer)",
+    "matchReasoning": [
+      "+17.0 pts distance (6.5 km)",
+      "+23.5 pts rating (4.7/5)",
+      "+17.8 pts reliability (89%)",
+      "-3.0 pts cancellation rate (3%)",
+      "+5.0 pts availability",
+      "+10.0 pts budget-friendly rate (Rs.871)",
+      "+15.0 pts specialization match (ac-repair, appliance-repair)",
+      "+7.0 pts review recency (17d ago)",
+      "-2.9 pts risk score (19)",
+      "+5.0 pts complexity fit (226 bookings)"
+    ],
+    "logs": [
+      {
+        "id": "3c62ea17-d545-474a-8c51-3b6f835968bd",
+        "timestamp": "2026-05-18T07:03:35.568Z",
+        "agent": "Orchestrator",
+        "action": "RequestReceived",
+        "details": {
+          "input": "AC bilkul kaam nahi kar raha, kal subah G-13 mein technician chahiye, budget zyada nahi hai"
+        }
+      },
+      {
+        "id": "724e0235-cf71-4a88-b235-49a2544832e9",
+        "timestamp": "2026-05-18T07:03:35.569Z",
+        "agent": "IntentAgent",
+        "action": "AnalyzeInput",
+        "details": {
+          "userInput": "AC bilkul kaam nahi kar raha, kal subah G-13 mein technician chahiye, budget zyada nahi hai"
+        }
+      },
+      {
+        "id": "0abbf6ca-0532-449a-8d08-66255dfddbee",
+        "timestamp": "2026-05-18T07:03:38.516Z",
+        "agent": "IntentAgent",
+        "action": "ExtractionComplete",
+        "details": {
+          "intent": "book_service",
+          "confidence_score": 0.95,
+          "clarification_needed": false,
+          "budget_sensitivity": "high",
+          "complexity": "intermediate",
+          "location_sector": "G-13",
+          "service_category": "ac-repair",
+          "time_preference": "tomorrow morning",
+          "urgency": "medium"
+        }
+      },
+      {
+        "id": "06881aec-9ddc-4679-aa77-f033cb163dfd",
+        "timestamp": "2026-05-18T07:03:38.518Z",
+        "agent": "MatchingAgent",
+        "action": "StartMatching",
+        "details": {
+          "category": "ac-repair",
+          "location": "G-13",
+          "complexity": "intermediate",
+          "urgency": "medium"
+        }
+      },
+      {
+        "id": "c3387871-e35b-49c7-b0c2-8f3ed047c825",
+        "timestamp": "2026-05-18T07:03:38.520Z",
+        "agent": "MatchingAgent",
+        "action": "MatchingComplete",
+        "details": {
+          "candidatesFound": 7,
+          "factorsUsed": 10,
+          "topProvider": "Farhan Ansari",
+          "topScore": "94.5"
+        }
+      },
+      {
+        "id": "56e11a2c-3a17-40fa-9b5f-99dceb51e31d",
+        "timestamp": "2026-05-18T07:03:38.521Z",
+        "agent": "PricingAgent",
+        "action": "StartPricing",
+        "details": {
+          "providerId": "P-0046"
+        }
+      },
+      {
+        "id": "cfede31a-b684-49ac-b633-f21c056c2de5",
+        "timestamp": "2026-05-18T07:03:38.523Z",
+        "agent": "PricingAgent",
+        "action": "PricingComplete",
+        "details": {
+          "baseRate": 871,
+          "complexityMultiplier": 1.5,
+          "urgencyPremium": 200,
+          "distanceCost": 75,
+          "surgeMultiplier": 1,
+          "surgeAmount": 0,
+          "surgeLabel": "Standard rate",
+          "loyaltyDiscountPercent": 0,
+          "loyaltyDiscountAmount": 0,
+          "loyaltyLabel": null,
+          "subTotalBeforeDiscount": 1582,
+          "finalEstimatedPrice": 1582,
+          "partsEstimate": "Usually no major parts needed",
+          "budgetAlternative": {
+            "description": "Basic plan (standard visit, no urgency premium)",
+            "estimatedPrice": 946,
+            "note": "Technician assesses on-site; complex repairs billed separately"
+          }
+        }
+      },
+      {
+        "id": "36f1e5fa-deee-466f-90db-344cc6cf47f0",
+        "timestamp": "2026-05-18T07:03:38.524Z",
+        "agent": "BookingAgent",
+        "action": "StartBooking",
+        "details": {
+          "providerId": "P-0046"
+        }
+      },
+      {
+        "id": "2e784f84-e62c-4c28-9bbd-fc03b8d81a33",
+        "timestamp": "2026-05-18T07:03:38.527Z",
+        "agent": "BookingAgent",
+        "action": "BookingConfirmed",
+        "details": {
+          "bookingId": "BKG-10708",
+          "scheduledTime": "Tomorrow 9:00 AM (+26 min travel buffer)",
+          "smsNotificationSimulated": "Khidmat.ai: Booking BKG-10708 confirmed! Farhan Ansari will arrive at Tomorrow 9:00 AM (+26 min travel buffer). Contact: 0341-7891520. Total: Rs.1582",
+          "userBookingCount": 3
+        }
+      },
+      {
+        "id": "b7edea42-4000-4c76-9b16-d232f1f8a844",
+        "timestamp": "2026-05-18T07:03:38.528Z",
+        "agent": "Orchestrator",
+        "action": "WorkflowComplete",
+        "details": {
+          "bookingId": "BKG-10708",
+          "scheduledTime": "Tomorrow 9:00 AM (+26 min travel buffer)",
+          "finalPrice": 1582,
+          "surgeActive": false,
+          "loyaltyApplied": false
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "Ambiguous input (low confidence)",
+    "status": "CLARIFICATION_NEEDED",
+    "logs": [
+      {
+        "id": "eb35f436-0dac-4af4-bc1d-11ccd6786ffd",
+        "timestamp": "2026-05-18T07:03:38.559Z",
+        "agent": "Orchestrator",
+        "action": "RequestReceived",
+        "details": {
+          "input": "koi banda chahiye ghar ke kaam ke liye"
+        }
+      },
+      {
+        "id": "c7ce8e58-ec07-4c68-8ad5-74f5989e05a3",
+        "timestamp": "2026-05-18T07:03:38.560Z",
+        "agent": "IntentAgent",
+        "action": "AnalyzeInput",
+        "details": {
+          "userInput": "koi banda chahiye ghar ke kaam ke liye"
+        }
+      },
+      {
+        "id": "e747b5f4-4533-4f67-b1e4-cc4091b30c83",
+        "timestamp": "2026-05-18T07:03:40.599Z",
+        "agent": "IntentAgent",
+        "action": "ExtractionComplete",
+        "details": {
+          "intent": "book_service",
+          "confidence_score": 0.9,
+          "clarification_needed": true,
+          "clarification_question": "Aapko ghar ke kis kaam ke liye banda chahiye aur kis sector mein?",
+          "complexity": "basic",
+          "service_category": "cleaning",
+          "urgency": "medium"
+        }
+      },
+      {
+        "id": "04baacb2-e164-43bf-a64a-8ae681e0b5d9",
+        "timestamp": "2026-05-18T07:03:40.600Z",
+        "agent": "Orchestrator",
+        "action": "AwaitingClarification",
+        "details": {
+          "question": "Aapko ghar ke kis kaam ke liye banda chahiye aur kis sector mein?",
+          "confidenceScore": 0.9
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "Complex job with complexity fit",
+    "status": "SUCCESS",
+    "confidenceScore": 0.95,
+    "provider": "Usman Ahmad",
+    "matchScore": "74.5",
+    "finalPrice": 2764,
+    "scheduledTime": "Tomorrow 2:00 PM (+24 min travel buffer)",
+    "matchReasoning": [
+      "+17.9 pts distance (6.0 km)",
+      "+21.5 pts rating (4.3/5)",
+      "+17.8 pts reliability (89%)",
+      "-7.0 pts cancellation rate (7%)",
+      "+7.5 pts availability",
+      "+15.0 pts specialization match (electrical)",
+      "+7.0 pts review recency (18d ago)",
+      "-5.3 pts risk score (35)"
+    ],
+    "logs": [
+      {
+        "id": "d1f5b19a-e7bc-4451-bb4f-9d6880c5607a",
+        "timestamp": "2026-05-18T07:03:40.611Z",
+        "agent": "Orchestrator",
+        "action": "RequestReceived",
+        "details": {
+          "input": "complete electrical wiring job H-8 mein, kal afternoon, certified electrician chahiye"
+        }
+      },
+      {
+        "id": "a62d1629-54c3-4d07-bfb7-fbd4a99c31a0",
+        "timestamp": "2026-05-18T07:03:40.612Z",
+        "agent": "IntentAgent",
+        "action": "AnalyzeInput",
+        "details": {
+          "userInput": "complete electrical wiring job H-8 mein, kal afternoon, certified electrician chahiye"
+        }
+      },
+      {
+        "id": "20d0bdef-3b49-4828-98e9-983595da6c6c",
+        "timestamp": "2026-05-18T07:03:43.313Z",
+        "agent": "IntentAgent",
+        "action": "ExtractionComplete",
+        "details": {
+          "intent": "book_service",
+          "confidence_score": 0.95,
+          "clarification_needed": false,
+          "complexity": "complex",
+          "location_sector": "H-8",
+          "service_category": "electrical",
+          "time_preference": "tomorrow afternoon",
+          "urgency": "medium"
+        }
+      },
+      {
+        "id": "d2896a2d-62a6-4c1b-a23c-0a4d71f4d01f",
+        "timestamp": "2026-05-18T07:03:43.315Z",
+        "agent": "MatchingAgent",
+        "action": "StartMatching",
+        "details": {
+          "category": "electrical",
+          "location": "H-8",
+          "complexity": "complex",
+          "urgency": "medium"
+        }
+      },
+      {
+        "id": "c2bdd5bf-56f5-4307-987f-9cc9d6f8b293",
+        "timestamp": "2026-05-18T07:03:43.320Z",
+        "agent": "MatchingAgent",
+        "action": "MatchingComplete",
+        "details": {
+          "candidatesFound": 6,
+          "factorsUsed": 10,
+          "topProvider": "Usman Ahmad",
+          "topScore": "74.5"
+        }
+      },
+      {
+        "id": "4390e9a8-2191-4e53-a6ea-bf98cbacf7e0",
+        "timestamp": "2026-05-18T07:03:43.323Z",
+        "agent": "PricingAgent",
+        "action": "StartPricing",
+        "details": {
+          "providerId": "P-0049"
+        }
+      },
+      {
+        "id": "54a66311-0d6e-46b0-acf5-120113b6fd37",
+        "timestamp": "2026-05-18T07:03:43.325Z",
+        "agent": "PricingAgent",
+        "action": "PricingComplete",
+        "details": {
+          "baseRate": 1064,
+          "complexityMultiplier": 2.5,
+          "urgencyPremium": 200,
+          "distanceCost": 50,
+          "surgeMultiplier": 1,
+          "surgeAmount": 0,
+          "surgeLabel": "Standard rate",
+          "loyaltyDiscountPercent": 5,
+          "loyaltyDiscountAmount": 146,
+          "loyaltyLabel": "Returning customer discount (3+ bookings)",
+          "subTotalBeforeDiscount": 2910,
+          "finalEstimatedPrice": 2764,
+          "partsEstimate": "Parts cost additional (est. Rs. 1,000–5,000)",
+          "budgetAlternative": null
+        }
+      },
+      {
+        "id": "162bb037-5ee6-453d-8ebe-6d7257cef57c",
+        "timestamp": "2026-05-18T07:03:43.326Z",
+        "agent": "BookingAgent",
+        "action": "StartBooking",
+        "details": {
+          "providerId": "P-0049"
+        }
+      },
+      {
+        "id": "693452e8-8f48-4c65-aff5-25585e8bf515",
+        "timestamp": "2026-05-18T07:03:43.329Z",
+        "agent": "BookingAgent",
+        "action": "BookingConfirmed",
+        "details": {
+          "bookingId": "BKG-82973",
+          "scheduledTime": "Tomorrow 2:00 PM (+24 min travel buffer)",
+          "smsNotificationSimulated": "Khidmat.ai: Booking BKG-82973 confirmed! Usman Ahmad will arrive at Tomorrow 2:00 PM (+24 min travel buffer). Contact: 0332-6493631. Total: Rs.2764",
+          "userBookingCount": 4
+        }
+      },
+      {
+        "id": "8582456b-db89-435e-9d1f-d95f2a7e0779",
+        "timestamp": "2026-05-18T07:03:43.331Z",
+        "agent": "Orchestrator",
+        "action": "WorkflowComplete",
+        "details": {
+          "bookingId": "BKG-82973",
+          "scheduledTime": "Tomorrow 2:00 PM (+24 min travel buffer)",
+          "finalPrice": 2764,
+          "surgeActive": false,
+          "loyaltyApplied": true
+        }
+      }
+    ]
+  }
+]

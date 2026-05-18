@@ -4,3 +4,13 @@ service-account-key.json
 *.db
 dist/
 .DS_Store
+# Secrets
+backend/.env
+service-account-key.json
+update_key.ps1
+
+# Large build artifacts
+khidmat-ai.zip
+mobile/.expo/
+mobile/node_modules/
+backend/node_modules/

@@ -1,8 +1,10 @@
 # Khidmat.ai — Agentic AI Service Orchestrator
 
 > **Hackathon:** Google AI Seekho Phase II — AI Service Orchestrator Challenge  
-> **Team:** Huzaifa Ayyaz  
+> **Team Name:** AgentOrchestrator  
+> **Member:** Muhammad Huzaifa  
 > **Live Backend:** https://khidmat-ai-514385561723.us-central1.run.app  
+> **Mobile APK:** https://expo.dev/accounts/huzaifaned/projects/mobile/builds/5ed52229-3a8a-45b8-abce-4916f377b785  
 > **Model:** Gemini 2.5 Flash via Google AI Studio (billing-enabled, `aiseekho-challenge2` project)
 
 ---

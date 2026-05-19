@@ -19,18 +19,29 @@ export default function BookingsScreen() {
     }, []);
 
     const handleDispute = async (bookingId, type) => {
+        const labels = {
+            'QUALITY_ISSUE': 'Quality Issue',
+            'PRICE_MISMATCH': 'Price Mismatch',
+            'NO_SHOW': 'Provider No-Show',
+        };
         Alert.alert(
-            "Simulate Dispute",
-            `Simulate ${type} for booking ${bookingId}?`,
+            `Raise Dispute: ${labels[type]}`,
+            `File a "${labels[type]}" dispute for booking ${bookingId}?`,
             [
                 { text: "Cancel", style: "cancel" },
-                { 
-                    text: "Confirm", 
+                {
+                    text: "Confirm",
+                    style: "destructive",
                     onPress: async () => {
                         const res = await ApiService.simulateDispute(bookingId, type);
                         if (res.success) {
-                            Alert.alert("Dispute Logged", `Dispute ID: ${res.dispute.id}\nStatus: ${res.dispute.status}`);
+                            Alert.alert(
+                                "✅ Dispute Resolved",
+                                `${res.resolution}\n\n${res.providerImpact || ''}`
+                            );
                             loadBookings();
+                        } else {
+                            Alert.alert('Error', res.error || 'Could not process dispute');
                         }
                     }
                 }
@@ -50,13 +61,22 @@ export default function BookingsScreen() {
             <Text style={styles.cardDetail}><Ionicons name="calendar-outline" size={14}/> {item.scheduledTime}</Text>
             <Text style={styles.cardDetail}><Ionicons name="pricetag-outline" size={14}/> {item.totalPrice} PKR</Text>
             
-            {item.status === 'COMPLETED' && (
+            {item.status !== 'DISPUTED' && (
                 <View style={styles.actions}>
-                    <TouchableOpacity style={[styles.btn, styles.outlineBtn]} onPress={() => handleDispute(item.id, 'poor_quality')}>
-                        <Text style={styles.outlineBtnText}>Poor Quality</Text>
+                    <TouchableOpacity
+                        style={[styles.btn, styles.outlineBtn]}
+                        onPress={() => handleDispute(item.id, 'QUALITY_ISSUE')}>
+                        <Text style={styles.outlineBtnText}>⚠️ Quality Issue</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.btn, styles.outlineBtn]} onPress={() => handleDispute(item.id, 'overcharged')}>
-                        <Text style={styles.outlineBtnText}>Overcharged</Text>
+                    <TouchableOpacity
+                        style={[styles.btn, styles.outlineBtn]}
+                        onPress={() => handleDispute(item.id, 'PRICE_MISMATCH')}>
+                        <Text style={styles.outlineBtnText}>💰 Price Dispute</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={[styles.btn, { ...styles.outlineBtn, borderColor: '#FF9800' }]}
+                        onPress={() => handleDispute(item.id, 'NO_SHOW')}>
+                        <Text style={[styles.outlineBtnText, { color: '#FF9800' }]}>🚫 No-Show</Text>
                     </TouchableOpacity>
                 </View>
             )}

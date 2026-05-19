@@ -88,7 +88,11 @@ async function handleServiceRequest(userInput, requestId) {
             status: 'SUCCESS',
             message: bookingResult.message,
             booking: bookingResult,
-            provider: selectedProvider,
+            provider: {
+                ...selectedProvider,
+                factorsUsed: 10,
+                allCandidatesEvaluated: matchResult.topProviders.length,
+            },
             allMatches: matchResult.topProviders,  // return all top 3 for transparency
             pricing: priceBreakdown,
             intent: intentData,

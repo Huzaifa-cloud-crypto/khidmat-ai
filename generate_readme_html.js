@@ -1,7 +1,11 @@
 // Generate a clean, styled HTML version of the README for PDF printing
 const fs = require('fs');
+const path = require('path');
 
 const readmeContent = fs.readFileSync('./README.md', 'utf8');
+const brainDir = 'C:\\Users\\HC\\.gemini\\antigravity\\brain\\8c2241ce-1d9d-4107-91cb-fe29cb97bde9';
+const implPlanPath = path.join(brainDir, 'implementation_plan.md');
+const implPlanContent = fs.existsSync(implPlanPath) ? fs.readFileSync(implPlanPath, 'utf8') : '';
 
 // Simple markdown → HTML conversion
 function mdToHtml(md) {
@@ -40,6 +44,7 @@ function mdToHtml(md) {
 }
 
 const bodyHtml = mdToHtml(readmeContent);
+const implHtml = implPlanContent ? mdToHtml(implPlanContent) : '';
 
 const html = `<!DOCTYPE html>
 <html lang="en">
@@ -69,6 +74,8 @@ const html = `<!DOCTYPE html>
   .cover h1 { border: none; font-size: 28pt; }
   .cover .subtitle { font-size: 13pt; color: #555; margin: 10px 0; }
   .cover .badge { display: inline-block; background: #1a73e8; color: white; border-radius: 20px; padding: 4px 14px; margin: 4px; font-size: 10pt; }
+  .appendix-header { background: #0d47a1; color: white; padding: 16px 24px; border-radius: 8px 8px 0 0; font-size: 16pt; font-weight: bold; margin-top: 40px; }
+  .appendix-body { border: 2px solid #0d47a1; border-top: none; border-radius: 0 0 8px 8px; padding: 24px; margin-bottom: 40px; }
   @media print { body { padding: 1cm; } pre.code { font-size: 7.5pt; } }
 </style>
 </head>
@@ -82,11 +89,17 @@ const html = `<!DOCTYPE html>
   <span class="badge">Cloud Run</span>
   <span class="badge">React Native</span>
   <br><br>
-  <p><strong>Team:</strong> Muhammad Huzaifa</p>
+  <p><strong>Team:</strong> AgentOrchestrator &nbsp;|&nbsp; <strong>Member:</strong> Muhammad Huzaifa</p>
   <p><strong>Live Backend:</strong> https://khidmat-ai-514385561723.us-central1.run.app</p>
-  <p><strong>APK:</strong> https://expo.dev/accounts/huzaifaned/projects/mobile/builds/f01df0d9-2f74-4143-8d78-b4a941ebe7af</p>
+  <p><strong>APK:</strong> https://expo.dev/accounts/huzaifaned/projects/mobile/builds/5ed52229-3a8a-45b8-abce-4916f377b785</p>
+  <p><strong>GitHub:</strong> https://github.com/Huzaifa-cloud-crypto/khidmat-ai</p>
 </div>
 ${bodyHtml}
+
+${implHtml ? `
+<div class="appendix-header">📐 Appendix: Implementation Plan (Antigravity Design Document)</div>
+<div class="appendix-body">${implHtml}</div>
+` : ''}
 </body>
 </html>`;
 
